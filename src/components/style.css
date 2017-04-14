@@ -1,0 +1,18 @@
+.main{
+  text-align: center;
+}
+
+.Question{
+  padding-top: 20px;
+}
+
+.Result{
+  font-size: 20px;
+}
+#callback{
+  color:green;
+  font-size: 20px;
+}
+.right{
+  float:right;
+}
