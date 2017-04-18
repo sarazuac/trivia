@@ -31,11 +31,12 @@ class AddQuestion extends Component {
 
     render(){
       return(
-        <div className="main">
+        <div >
         <Navbar />
         <div className="form-inline">
         <div id="callback"></div>
         <h3>Add a Trivia Question</h3>
+        <hr/>
         <div className="form-group">
         <input type="text"
               className="form-control"

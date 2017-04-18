@@ -36,16 +36,14 @@ componentDidMount(){
     //console.log('this.props.scores', this.props.scores);
     return(<div ><Navbar />
       <h3 className="score-main">Scores</h3>
-<ul className="list-group score-list">
+      <hr/>
+      <ul className="list-group score-list">
       {
           this.props.scores.map( (sc,index) => {
               return (
-
                 <li key={index} className="list-group-item">User: {sc.email} <span className="badge">Points: {sc.score}</span></li>
-
             )
           })
-
         }
           </ul>
       </div>  )

@@ -6,7 +6,16 @@
 }
 
 .Question{
-  padding-top: 20px;
+  padding-top: 10px;
+  margin-bottom:10px;
+  width:50%;
+  border-style: solid;
+  border-color:white;
+  margin-left: auto;
+  margin-right:auto;
+}
+.question-guess{
+  margin-bottom:10px;
 }
 
 .Result{
@@ -35,6 +44,9 @@ body, html{
 }
 .question-category{
   font-size: 12px;
+}
+.question-item{
+
 }
 
 .score-main{

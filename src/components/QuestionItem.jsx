@@ -12,7 +12,7 @@ class QuestionItem extends Component {
     const { email, question, answer, category } = this.props.question;
     //console.log('this.props.question', this.props.question);
     return (
-      <div style={{margin:'5px'}}>
+      <div className="question-item" style={{margin:'5px'}}>
         <span className="question-title"><strong>{question}</strong></span>
         <br/>
         <span className="question-category"><em>Category: {category}</em></span>
