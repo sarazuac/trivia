@@ -16,7 +16,7 @@
      height: 100%;
      width: 100%;
  	background-repeat: no-repeat;
- 	background:url(https://i.ytimg.com/vi/4kfXjatgeEU/maxresdefault.jpg);
+ background-image: url("../blue.jpg");
  	font-family: 'Oxygen', sans-serif;
 	    background-size: cover;
     margin-left:0px;

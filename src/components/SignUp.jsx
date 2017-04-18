@@ -30,7 +30,7 @@ class SignUp extends Component {
       var s = 0;
       sessionStorage.setItem("Score",s);
       sessionStorage.setItem("Email",email);
-        browserHistory.push('/app');
+        browserHistory.push('/');
 
     }).catch(error => {
 
@@ -39,34 +39,12 @@ class SignUp extends Component {
 
   }
 
-  // <div className="form-inline sign-up-wrapper" style={{margin:'5%'}}>
-  //   <h2>Sign Up</h2>
-  //   <div className="form-group">
-  //   <div className="">
-  //     <input className="form-control" type="text"  style={{width:'100%'}} placeholder="email"
-  //             onChange={event =>this.setState({email:event.target.value})}/>
-  //   </div>
-  //   <div className="">
-  //     <input className="form-control" type="password" style={{width:'100%'}} placeholder="password"
-  //             onChange={event =>this.setState({password:event.target.value})}/>
-  //   </div>
-  //   <div className="">
-  //     <button className="btn btn-primary sign-up-btn" type="button"
-  //             onClick={()=>this.signUp()}>Sign Up</button>
-  //   </div>
-  //   </div>
-  //     <div>{this.state.error.message}</div>
-  //     <div><Link to={'/signin'}>Already a user? Sign in instead</Link></div>
-  // </div>
-
-
-Name
 
   render(){
     return (
 
       <div className="container sign">
-    <div className="row main main-sign">
+    <div className="row main-sign">
       <div className="main-login main-center">
       <h3>Sign up to play!</h3>
           <div className="form-group">

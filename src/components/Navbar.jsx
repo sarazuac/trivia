@@ -21,7 +21,7 @@ class Navbar extends Component{
             <a className="navbar-brand" href="#">Trivia App!</a>
           </div>
           <ul className="nav navbar-nav">
-            <li><Link to={'/app'}>App</Link></li>
+            <li><Link to={'/'}>App</Link></li>
             <li><Link to={'/addquestion'}>Add a Question</Link></li>
             <li><Link to={'/scorelist'}>Score List</Link></li>
 

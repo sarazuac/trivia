@@ -23,7 +23,7 @@ class SignIn extends Component {
       sessionStorage.setItem('Score', score);
 
       //console.log('ss', sessionStorage.getItem('Score'));
-        browserHistory.push('/app');
+        browserHistory.push('/');
     }).catch(error => {
       this.setState({error})
     });
@@ -33,7 +33,7 @@ class SignIn extends Component {
   render(){
     return (
       <div className="container sign">
-    <div className="row main main-sign">
+    <div className="row main-sign">
       <div className="main-login main-center">
       <h3>Sign In!</h3>
           <div className="form-group">
