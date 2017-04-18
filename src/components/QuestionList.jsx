@@ -16,21 +16,21 @@ class QuestionList extends Component{
       userScore: 0,
       result:''
     }
- var sss = '';
+ //var sss = '';
     scoreRef.orderByChild("scores/email").on("child_added", function(snapshot) {
 
       if(snapshot.val().email === sessionStorage.getItem('Email') ){
 
           let newScore = snapshot.val().score;
 
-          sss = newScore;
-          console.log('sss1', sss);
+          //sss = newScore;
+          //console.log('sss1', sss);
           scoreRef.child(snapshot.key).set({email: snapshot.val().email, score : newScore});
           sessionStorage.setItem('Score', newScore);
           document.getElementById("score").innerHTML = newScore;
       }
     });
-console.log('sss', sss);
+//console.log('sss', sss);
 
   }
 
@@ -55,7 +55,7 @@ scoreRef.orderByChild("scores/email").on("child_added", function(snapshot) {
        let newScore = snapshot.val().score +4;
 
       scoreRef.child(snapshot.key).set({email: snapshot.val().email, score : newScore});
-      this.setState({userScore:newScore});
+    //  this.setState({userScore:newScore});
       document.getElementById("score").innerHTML = newScore;
 
       return result;
@@ -98,7 +98,7 @@ componentDidMount(){
 
   render(){
 
-    return(<div >
+    return(<div className="stage">
           <div className="Result" id="res">{this.state.result}</div>
           <div className="Score" id="res">Score: <span id="score">{this.state.userScore}</span></div>
 

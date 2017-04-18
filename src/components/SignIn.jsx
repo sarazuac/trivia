@@ -35,7 +35,7 @@ class SignIn extends Component {
       <div className="container sign">
     <div className="row main main-sign">
       <div className="main-login main-center">
-      <h5>Sign In to play!</h5>
+      <h3>Sign In!</h3>
           <div className="form-group">
             <div className="cols-sm-10">
               <div className="input-group">
@@ -60,7 +60,7 @@ class SignIn extends Component {
           </div>
 
         <div>{this.state.error.message}</div>
-        <div><Link to={'/signup'}>Sign Up</Link></div>
+        <div><Link to={'/signup'}>Not a member? Sign Up!</Link></div>
       </div>
     </div>
   </div>

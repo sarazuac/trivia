@@ -68,7 +68,7 @@ Name
       <div className="container sign">
     <div className="row main main-sign">
       <div className="main-login main-center">
-      <h5>Sign up to play!</h5>
+      <h3>Sign up to play!</h3>
           <div className="form-group">
 
             <div className="cols-sm-10">
@@ -101,7 +101,7 @@ Name
           </div>
 
           <div>{this.state.error.message}</div>
-          <div><Link to={'/signin'}>Sign In</Link></div>
+          <div><Link to={'/signin'}>Already a member? Sign In!</Link></div>
       </div>
     </div>
   </div>
