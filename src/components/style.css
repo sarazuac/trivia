@@ -1,8 +1,11 @@
-.main, body, html{
+.sign{
   text-align: center;
   background-image: url("../blue.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+}
+.main, body{
+    text-align: center;
 }
 
 .Question{
@@ -10,7 +13,8 @@
   margin-bottom:10px;
   width:50%;
   border-style: solid;
-  border-color:white;
+  border-color:black;
+  border-radius: 20%;
   margin-left: auto;
   margin-right:auto;
 }

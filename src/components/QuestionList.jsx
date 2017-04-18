@@ -94,11 +94,7 @@ componentDidMount(){
   //  console.log('questions',questions);
     this.props.setQuestions(questions);
   });
-
-
-
 }
-
 
   render(){
 
