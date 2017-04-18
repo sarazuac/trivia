@@ -1,5 +1,8 @@
 .main{
   text-align: center;
+  background-image: url("../blue.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .Question{
@@ -19,9 +22,13 @@
 
 #root{
   height: 100%;
+
 }
 body, html{
   height: 100%;
+  background-image: url("../blue.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .question-title{
   font-size: 18px;
@@ -40,9 +47,7 @@ body, html{
   width:50%;
 }
 #root{
-  background-image: url("../blue.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+
 }
 a{
   color:white;
