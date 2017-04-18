@@ -10,7 +10,8 @@ class AddQuestion extends Component {
     super(props);
     this.state ={
       question:'',
-      answer:''
+      answer:'',
+      category:''
     }
   }
 
@@ -18,8 +19,9 @@ class AddQuestion extends Component {
       // console.log('this', this);
       const { question } = this.state;
       const { answer } = this.state;
+      const { category } = this.state;
       const { email } = this.props.user;
-      questRef.push({email, question, answer});
+      questRef.push({email, question, answer, category});
       document.getElementById("callback").innerHTML += "Success!";
       setTimeout(function(){
         browserHistory.push('/app');
@@ -45,6 +47,13 @@ class AddQuestion extends Component {
                     style={{marginRight:'5px'}}
                     onChange={event => this.setState({answer: event.target.value})}
                     placeholder="Answer"/>
+
+
+                    <input type="text"
+                                className="form-control"
+                                style={{marginRight:'5px'}}
+                                onChange={event => this.setState({category: event.target.value})}
+                                placeholder="Category"/>
         <button className="btn btn-success"
                 type="button"
                 onClick={()=> this.addQuestion()}>Submit</button>

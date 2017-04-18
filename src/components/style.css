@@ -16,3 +16,26 @@
 .right{
   float:right;
 }
+
+#root{
+  height: 100%;
+}
+body, html{
+  height: 100%;
+}
+.question-title{
+  font-size: 18px;
+}
+.question-category{
+  font-size: 12px;
+}
+
+.score-main{
+  text-align: center;
+
+}
+.score-list{
+  align-items: center;
+  margin:auto;
+  width:50%;
+}

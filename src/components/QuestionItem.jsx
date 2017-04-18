@@ -7,14 +7,16 @@ import { connect } from 'react-redux';
 class QuestionItem extends Component {
 
 
-
-
   render(){
 
-    const { email, question, answer} = this.props.question;
+    const { email, question, answer, category } = this.props.question;
+    //console.log('this.props.question', this.props.question);
     return (
       <div style={{margin:'5px'}}>
-        <span><strong>{question}</strong></span>
+        <span className="question-title"><strong>{question}</strong></span>
+        <br/>
+        <span className="question-category"><em>Category: {category}</em></span>
+        <br/>
         <span> submmited by <em>{email}</em></span>
         <input type="hidden" value={answer}/>
 

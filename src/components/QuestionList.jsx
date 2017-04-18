@@ -1,9 +1,11 @@
 import React , {Component} from 'react';
 import { connect } from 'react-redux';
 import { questRef } from '../firebase';
+import { scoreRef } from '../firebase';
 import { setQuestions} from '../actions';
 import QuestionItem from './QuestionItem';
 import './style.css';
+
 
 class QuestionList extends Component{
 
@@ -11,40 +13,67 @@ class QuestionList extends Component{
     super(props);
     this.state ={
       userAnswer:'',
+      userScore: 0,
       result:''
     }
+ var sss = '';
+    scoreRef.orderByChild("scores/email").on("child_added", function(snapshot) {
+
+      if(snapshot.val().email === sessionStorage.getItem('Email') ){
+
+          let newScore = snapshot.val().score;
+
+          sss = newScore;
+          console.log('sss1', sss);
+          scoreRef.child(snapshot.key).set({email: snapshot.val().email, score : newScore});
+          sessionStorage.setItem('Score', newScore);
+          document.getElementById("score").innerHTML = sessionStorage.getItem('Score');
+      }
+    });
+console.log('sss', sss);
+
   }
 
 
   checkAnswer(question){
-    console.log('key', question.serverKey);
 
-// console.log('answer', quest.answer);
-// questRef.once("value")
-//   .then(function(snapshot) {
-//     var key = snapshot.key; // "ada"
-//     var childKey = snapshot.child("-Khe273psMrQ7no1_0TC/answer").val(); // "last"
-//     console.log('ans', childKey);
-//   });
-let result = this.state.result;
-    const ans = question.answer;
-    let userAns = this.state.userAnswer;
-    console.log('userAnswer', userAns);
-    console.log('Correct Answer', ans);
+  let result = this.state.result;
+  const ans = question.answer;
+  let userAns = this.state.userAnswer;
 
-    if(ans === userAns){
-      console.log('FF');
-      this.setState({userAnswer:'', result:'Correct!'});
-      document.getElementById(question.serverKey).style.display = 'none';
-      document.getElementById("res").style.color = 'green';
-    }else{
-      console.log('wrong');
-      this.setState({userAnswer:'', result:'Wrong!'});
-      document.getElementById(question.serverKey).style.color = 'red';
-      document.getElementById("res").style.color = 'red';
-      //this.refs.guess.value='';
-    }
+scoreRef.orderByChild("scores/email").on("child_added", function(snapshot) {
+
+  if(snapshot.val().email === sessionStorage.getItem('Email') ){
+
+    if(ans.toLowerCase() === userAns.toLowerCase()){
+      //console.log('Correct');
+
+       document.getElementById(question.serverKey).style.display = 'none';
+       document.getElementById("res").innerHTML = 'Correct!';
+       document.getElementById("res").style.color = 'green';
+
+       let newScore = snapshot.val().score +4;
+
+      scoreRef.child(snapshot.key).set({email: snapshot.val().email, score : newScore});
+      this.setState({userScore:newScore});
+      document.getElementById("score").innerHTML = newScore;
+
       return result;
+    }else{
+
+        document.getElementById("res").innerHTML = 'Wrong!';
+        document.getElementById("res").style.color = 'red';
+
+        let newScore = snapshot.val().score -1;
+        scoreRef.child(snapshot.key).set({email: snapshot.val().email, score : newScore});
+        document.getElementById("score").innerHTML = newScore;
+
+        return result;
+    }
+
+  }
+});
+
   }
 
 
@@ -53,38 +82,48 @@ componentDidMount(){
     let questions =[];
     snap.forEach( quest =>{
 
-      const {email, question, answer} = quest.val();
+      const {email, question, answer, category} = quest.val();
        const serverKey = quest.key;
-      questions.push({email, question, answer, serverKey});
+      questions.push({email, question, answer, category, serverKey});
       //console.log('quest', quest);
     })
   //  console.log('questions',questions);
     this.props.setQuestions(questions);
-  })
+  });
+
+
+
 }
 
 
   render(){
-    //console.log('this.props.questions', this.props.questions);
+
     return(<div >
           <div className="Result" id="res">{this.state.result}</div>
-      {
+          <div className="Score" id="res">Score: <span id="score">{this.state.userScore}</span></div>
 
+
+
+      {
             this.props.questions.map((quest, index) =>{
               return(
                 <div key={index} id={quest.serverKey} className="Question">
 
-              <QuestionItem question={quest} />
-              <input type="text" placeholder="Answer here.." onChange={event => this.setState({userAnswer: event.target.value})}/>
-              <button onClick={()=>this.checkAnswer(quest)}>Check Answer</button>
+                  <QuestionItem question={quest} />
+                  <input type="text" placeholder="Answer here.." onChange={event => this.setState({userAnswer: event.target.value})}/>
+                  <button onClick={()=>this.checkAnswer(quest)}>Check Answer</button>
 
-              </div>
+                </div>
+
               )
-            })
-          }
+
+            })//.map
+
+      }
 
         </div>
     )
+
   }
 }
 

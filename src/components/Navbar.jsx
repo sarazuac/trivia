@@ -8,7 +8,9 @@ import {Link} from 'react-router';
 
 class Navbar extends Component{
   signOut(){
+    sessionStorage.clear();
     firebaseApp.auth().signOut();
+
   }
 //   <AddQuestion />
   render(){
@@ -21,6 +23,7 @@ class Navbar extends Component{
           <ul className="nav navbar-nav">
             <li><Link to={'/app'}>App</Link></li>
             <li><Link to={'/addquestion'}>Add a Question</Link></li>
+            <li><Link to={'/scorelist'}>Score List</Link></li>
 
           </ul>
           <ul className="nav navbar-nav navbar-right pull-right">

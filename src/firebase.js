@@ -17,3 +17,4 @@ export const firebaseApp = firebase.initializeApp(config);
 
 
 export const questRef = firebase.database().ref('questions');
+export const scoreRef = firebase.database().ref('scores');
