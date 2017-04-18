@@ -56,8 +56,11 @@ scoreRef.orderByChild("scores/email").on("child_added", function(snapshot) {
 
       scoreRef.child(snapshot.key).set({email: snapshot.val().email, score : newScore});
     //  this.setState({userScore:newScore});
+    if(newScore==null){
       document.getElementById("score").innerHTML = newScore;
-
+    }else{
+      document.getElementById("score").innerHTML = newScore;
+    }
       return result;
     }else{
 
