@@ -27,7 +27,7 @@ class QuestionList extends Component{
           console.log('sss1', sss);
           scoreRef.child(snapshot.key).set({email: snapshot.val().email, score : newScore});
           sessionStorage.setItem('Score', newScore);
-          document.getElementById("score").innerHTML = sessionStorage.getItem('Score');
+          document.getElementById("score").innerHTML = newScore;
       }
     });
 console.log('sss', sss);
