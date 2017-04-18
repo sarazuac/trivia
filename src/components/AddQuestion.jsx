@@ -24,7 +24,7 @@ class AddQuestion extends Component {
       questRef.push({email, question, answer, category});
       document.getElementById("callback").innerHTML += "Success!";
       setTimeout(function(){
-        browserHistory.push('/app');
+        browserHistory.push('/');
     }, 2000);
 
     }
